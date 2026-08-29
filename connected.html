@@ -1,9 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CHIMERA Authorization</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 
 <style>
+  *, *::before, *::after { box-sizing: border-box; }
+  * { margin: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { min-height: 100vh; }
+  img, svg, video, canvas { display: block; max-width: 100%; }
+  button, input, textarea, select { font: inherit; color: inherit; }
+
+  /* OHNE DIESE ZEILE WIRKT `hidden` HIER NICHT. Die Browser-Regel
+     [hidden] { display: none } ist eine UA-Regel, und jede
+     Autoren-Regel schlaegt sie -- `.kasten` und `.merk` setzen
+     `display: flex`. Gemessen am Fehlerfall: die Seite zeigte
+     "Copy URL" und die Geheimnis-Warnung ueber einer leeren Box,
+     nachdem TikTok die Anmeldung abgelehnt hatte. */
+  [hidden] { display: none !important; }
+
   :root {
     --grund: #F7F8FA;
     --grund-tief: #EEF1F5;
@@ -209,7 +229,8 @@
   }
   footer a { color: var(--akzent); }
 </style>
-
+</head>
+<body>
 <div class="blatt">
 
   <div class="lage">
@@ -323,3 +344,5 @@
   });
 })();
 </script>
+</body>
+</html>
