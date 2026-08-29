@@ -1,0 +1,406 @@
+<title>CHIMERA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --grund: #F7F8FA;
+    --grund-tief: #EEF1F5;
+    --tinte: #15171B;
+    --tinte-still: #5C6470;
+    --akzent: #2D6A8E;
+    --linie: #DFE3E9;
+    --linie-zart: #E9ECF1;
+    --satz: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --grund: #0E1014;
+      --grund-tief: #16191F;
+      --tinte: #DCE0E6;
+      --tinte-still: #8A929E;
+      --akzent: #5FA8D3;
+      --linie: #262B33;
+      --linie-zart: #1C2027;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --grund: #0E1014;
+    --grund-tief: #16191F;
+    --tinte: #DCE0E6;
+    --tinte-still: #8A929E;
+    --akzent: #5FA8D3;
+    --linie: #262B33;
+    --linie-zart: #1C2027;
+  }
+
+  body {
+    background: var(--grund);
+    color: var(--tinte);
+    font-family: var(--satz);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .blatt {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  /* ------------------------------------------------------------ Kopf */
+
+  .kopf {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding-bottom: 2.25rem;
+    border-bottom: 2px solid var(--tinte);
+    margin-bottom: 2.75rem;
+  }
+
+  .zeichen {
+    flex: none;
+    width: 76px;
+    height: 76px;
+    border-radius: 17px;
+    background: #12161C;
+    display: grid;
+    place-items: center;
+  }
+
+  .zeichen svg { display: block; }
+
+  .titelblock {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    min-width: 0;
+  }
+
+  h1 {
+    font-size: clamp(1.9rem, 5vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .unterzeile {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--tinte-still);
+  }
+
+  .vorsatz {
+    font-size: 1.125rem;
+    line-height: 1.55;
+    border-left: 3px solid var(--akzent);
+    padding-left: 1.125rem;
+    margin-bottom: 3.25rem;
+    max-width: 38rem;
+  }
+
+  /* -------------------------------------------------------- Abschnitt */
+
+  section {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 0 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .nr {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--tinte-still);
+    padding-top: 0.3rem;
+  }
+
+  .rumpf {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    min-width: 0;
+  }
+
+  h2 {
+    font-size: 1.1875rem;
+    font-weight: 700;
+    letter-spacing: -0.012em;
+  }
+
+  p { max-width: 40rem; }
+  strong { font-weight: 700; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.875em;
+    background: var(--grund-tief);
+    border: 1px solid var(--linie-zart);
+    border-radius: 3px;
+    padding: 0.1em 0.35em;
+    word-break: break-word;
+  }
+
+  a { color: var(--akzent); text-underline-offset: 2px; }
+  a:focus-visible {
+    outline: 2px solid var(--akzent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* ----------------------------------------------------------- Masse */
+
+  .masse {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+    gap: 1px;
+    background: var(--linie);
+    border: 1px solid var(--linie);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .mass {
+    background: var(--grund);
+    padding: 0.85rem 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .mass .gruppe {
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--akzent);
+  }
+
+  .mass .was {
+    font-size: 0.9375rem;
+    line-height: 1.35;
+  }
+
+  /* --------------------------------------------------------- Rechte */
+
+  .rechte {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--linie);
+    border: 1px solid var(--linie);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .recht {
+    background: var(--grund);
+    padding: 0.85rem 0.95rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 0.9rem;
+    align-items: baseline;
+  }
+
+  .recht .name {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--akzent);
+    flex: none;
+  }
+
+  .recht .zweck {
+    font-size: 0.9375rem;
+    color: var(--tinte);
+    flex: 1 1 14rem;
+    min-width: 0;
+  }
+
+  .merk {
+    background: var(--grund-tief);
+    border: 1px solid var(--linie);
+    border-radius: 4px;
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .merk .titel {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tinte-still);
+  }
+
+  /* ------------------------------------------------------------ Fuss */
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--linie);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--tinte-still);
+  }
+
+  @media (max-width: 34rem) {
+    section { grid-template-columns: 1fr; gap: 0.5rem; }
+    .nr { padding-top: 0; }
+    .blatt { padding-top: 2.75rem; }
+    .kopf { gap: 1rem; }
+    .zeichen { width: 60px; height: 60px; border-radius: 14px; }
+  }
+</style>
+
+<div class="blatt">
+
+  <header class="kopf">
+    <div class="zeichen" aria-hidden="true">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+        <rect x="14.2" y="6.5" width="23.6" height="39" rx="2.4"
+              stroke="#5FA8D3" stroke-width="2.9"/>
+        <rect x="19.4" y="18.6" width="6.3" height="4.3" rx="2.15"
+              fill="#F2F5F8"/>
+        <rect x="19.4" y="25.4" width="7.8" height="4.3" rx="2.15"
+              fill="#F2F5F8"/>
+        <rect x="19.4" y="32.2" width="15" height="4.3" rx="2.15"
+              fill="#F2F5F8"/>
+      </svg>
+    </div>
+    <div class="titelblock">
+      <h1>CHIMERA</h1>
+      <div class="unterzeile">Video editing and measurement &middot; local-first</div>
+    </div>
+  </header>
+
+  <p class="vorsatz">
+    CHIMERA composes short-form videos and measures them — its own output and
+    reference material alike, along the same set of properties. Its TikTok
+    integration exists to answer one question: which of those measured
+    properties actually separate the videos that reached an audience from the
+    ones that did not.
+  </p>
+
+  <section>
+    <div class="nr">01</div>
+    <div class="rumpf">
+      <h2>What it measures</h2>
+      <p>
+        Twenty-five properties per video, taken with the same instrument
+        whether the file is the owner's own render or a reference clip.
+      </p>
+      <div class="masse">
+        <div class="mass">
+          <div class="gruppe">Image</div>
+          <div class="was">Cut rate, hook cuts, longest still, brightness,
+            saturation, grain</div>
+        </div>
+        <div class="mass">
+          <div class="gruppe">Text</div>
+          <div class="was">Subtitle height as a fraction of frame width,
+            background contrast, legibility</div>
+        </div>
+        <div class="mass">
+          <div class="gruppe">Speech</div>
+          <div class="was">Word count, speech fraction, words per second,
+            sentences, questions, address</div>
+        </div>
+        <div class="mass">
+          <div class="gruppe">Sound</div>
+          <div class="was">Loudness in LUFS, loudness range, true peak,
+            tempo in BPM, clipping</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="nr">02</div>
+    <div class="rumpf">
+      <h2>What it does not do</h2>
+      <p>
+        CHIMERA produces <strong>no virality score</strong>. A single number on
+        a scale would require weightings that nobody actually knows, and
+        inventing them would dress a guess as a finding.
+      </p>
+      <p>
+        What it reports instead is measured quantities and whether a difference
+        between two groups of videos survives a permutation test. Where the
+        evidence does not carry a conclusion, it says so rather than filling
+        the gap.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="nr">03</div>
+    <div class="rumpf">
+      <h2>The TikTok integration</h2>
+      <p>
+        Three read-only permissions, requested from the owner's own account.
+        No write permission of any kind is requested, so the application
+        cannot post, edit, delete or comment.
+      </p>
+      <div class="rechte">
+        <div class="recht">
+          <span class="name">user.info.basic</span>
+          <span class="zweck">Confirms which account a stored token belongs
+            to, so measurements are not misattributed</span>
+        </div>
+        <div class="recht">
+          <span class="name">user.info.stats</span>
+          <span class="zweck">Follower and video counts — the denominator
+            reach is only interpretable against</span>
+        </div>
+        <div class="recht">
+          <span class="name">video.list</span>
+          <span class="zweck">The owner's own videos with their public view,
+            like, comment and share counts</span>
+        </div>
+      </div>
+      <div class="merk">
+        <div class="titel">Local by construction</div>
+        <p>
+          There is no server. Authorisation uses OAuth 2.0 with PKCE, so no
+          password ever reaches the application; tokens are written to a file
+          on the owner's own machine and are sent nowhere but TikTok's own
+          endpoints. No telemetry, no analytics, no third-party sharing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="nr">04</div>
+    <div class="rumpf">
+      <h2>Availability</h2>
+      <p>
+        CHIMERA is single-user software, run by its owner on their own
+        machine. It is not offered as a hosted service, has no sign-up, and
+        carries no fee. This page exists to document what the application is
+        and which data it touches.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="mailto:adwalch@gmx.net">adwalch@gmx.net</a>
+  </footer>
+
+</div>

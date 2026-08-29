@@ -1,0 +1,461 @@
+<title>CHIMERA Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --grund: #F7F8FA;
+    --grund-tief: #EEF1F5;
+    --tinte: #15171B;
+    --tinte-still: #5C6470;
+    --akzent: #2D6A8E;
+    --linie: #DFE3E9;
+    --linie-zart: #E9ECF1;
+    --satz: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --grund: #0E1014;
+      --grund-tief: #16191F;
+      --tinte: #DCE0E6;
+      --tinte-still: #8A929E;
+      --akzent: #5FA8D3;
+      --linie: #262B33;
+      --linie-zart: #1C2027;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --grund: #0E1014;
+    --grund-tief: #16191F;
+    --tinte: #DCE0E6;
+    --tinte-still: #8A929E;
+    --akzent: #5FA8D3;
+    --linie: #262B33;
+    --linie-zart: #1C2027;
+  }
+
+  body {
+    background: var(--grund);
+    color: var(--tinte);
+    font-family: var(--satz);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .blatt {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  /* ---------------------------------------------------------- Kopf */
+
+  .kopf {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-bottom: 2.25rem;
+    border-bottom: 2px solid var(--tinte);
+    margin-bottom: 3rem;
+  }
+
+  .marke {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--akzent);
+  }
+
+  h1 {
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  .stand {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--tinte-still);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.5rem;
+  }
+
+  .vorsatz {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--tinte);
+    border-left: 3px solid var(--akzent);
+    padding-left: 1.125rem;
+    margin-bottom: 3.5rem;
+  }
+
+  /* ------------------------------------------------------ Abschnitt */
+
+  section {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 0 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .nr {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--tinte-still);
+    padding-top: 0.35rem;
+  }
+
+  .rumpf {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    min-width: 0;
+  }
+
+  h2 {
+    font-size: 1.1875rem;
+    font-weight: 700;
+    letter-spacing: -0.012em;
+    line-height: 1.3;
+  }
+
+  p { max-width: 40rem; }
+
+  strong { font-weight: 700; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.875em;
+    background: var(--grund-tief);
+    border: 1px solid var(--linie-zart);
+    border-radius: 3px;
+    padding: 0.1em 0.35em;
+    word-break: break-word;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    padding-left: 1.1rem;
+    max-width: 40rem;
+  }
+
+  li { padding-left: 0.2rem; }
+  li::marker { color: var(--akzent); }
+
+  a {
+    color: var(--akzent);
+    text-underline-offset: 2px;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--akzent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* --------------------------------------------------------- Tabelle */
+
+  .rahmen {
+    overflow-x: auto;
+    border: 1px solid var(--linie);
+    border-radius: 4px;
+    margin: 0.35rem 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.9375rem;
+    min-width: 30rem;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 0.7rem 0.9rem;
+    border-bottom: 1px solid var(--linie-zart);
+    vertical-align: top;
+  }
+
+  thead th {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tinte-still);
+    background: var(--grund-tief);
+    border-bottom: 1px solid var(--linie);
+    white-space: nowrap;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+
+  td.scope {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--akzent);
+    white-space: nowrap;
+  }
+
+  /* ------------------------------------------------------ Merksatz */
+
+  .merk {
+    background: var(--grund-tief);
+    border: 1px solid var(--linie);
+    border-radius: 4px;
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .merk .titel {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tinte-still);
+  }
+
+  .platzhalter {
+    background: color-mix(in srgb, var(--akzent) 14%, transparent);
+    border: 1px dashed var(--akzent);
+    color: var(--akzent);
+    font-family: var(--mono);
+    font-size: 0.875em;
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+  }
+
+  /* ----------------------------------------------------------- Fuss */
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--linie);
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--tinte-still);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  @media (max-width: 34rem) {
+    section { grid-template-columns: 1fr; gap: 0.5rem; }
+    .nr { padding-top: 0; }
+    .blatt { padding-top: 2.75rem; }
+  }
+</style>
+
+<div class="blatt">
+
+  <header class="kopf">
+    <div class="marke">CHIMERA</div>
+    <h1>Privacy Policy</h1>
+    <div class="stand">
+      <span>Effective 29 August 2026</span>
+      <span>Version 1.0</span>
+    </div>
+  </header>
+
+  <p class="vorsatz">
+    CHIMERA is a local-first video editing and measurement tool. It runs
+    entirely on its owner's own computer. It has no server, no user accounts,
+    no analytics and no third-party data sharing. This document states exactly
+    which TikTok data it reads, where that data is kept, and how to remove it.
+  </p>
+
+  <section>
+    <div class="nr">01</div>
+    <div class="rumpf">
+      <h2>Who this policy covers</h2>
+      <p>
+        CHIMERA is single-user software. The only person whose data it ever
+        touches is the person who installed it and authorised their own TikTok
+        account. There is no other class of user, no visitor, and no customer.
+      </p>
+      <p>
+        CHIMERA is not offered as a hosted service. There is nothing to sign
+        up for. Anyone running it holds their own copy on their own machine.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="nr">02</div>
+    <div class="rumpf">
+      <h2>What data is read from TikTok</h2>
+      <p>
+        CHIMERA requests three read-only permissions. It requests no write
+        permission of any kind — it cannot post, delete, edit or comment.
+      </p>
+      <div class="rahmen">
+        <table>
+          <thead>
+            <tr>
+              <th>Permission</th>
+              <th>What is read</th>
+              <th>Why</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="scope">user.info.basic</td>
+              <td>Account identifier and display name</td>
+              <td>To confirm which account the stored token belongs to, so
+                  measurements are never attributed to the wrong channel</td>
+            </tr>
+            <tr>
+              <td class="scope">user.info.stats</td>
+              <td>Follower count and total video count</td>
+              <td>Reach is only interpretable relative to audience size; these
+                  provide the denominator for the analysis</td>
+            </tr>
+            <tr>
+              <td class="scope">video.list</td>
+              <td>The owner's own published videos: identifier, title,
+                  duration, and public view, like, comment and share counts</td>
+              <td>The measured outcome each video is compared against</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        No other person's data is ever requested or received. CHIMERA has no
+        access to direct messages, to private videos, to other accounts, to
+        the owner's contacts, or to any advertising or commercial data.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="nr">03</div>
+    <div class="rumpf">
+      <h2>Where that data is kept</h2>
+      <p>
+        Everything stays on the owner's own machine. Two locations, both
+        local:
+      </p>
+      <ul>
+        <li>
+          <strong>Access credentials.</strong> The OAuth access token and
+          refresh token are written to <code>~/.chimera/tiktok.json</code>.
+          This file never leaves the machine.
+        </li>
+        <li>
+          <strong>Measurements.</strong> Video metrics and the measurements
+          taken from the corresponding local video files are written to
+          ordinary project files in the owner's own working directory.
+        </li>
+      </ul>
+      <div class="merk">
+        <div class="titel">No transmission</div>
+        <p>
+          CHIMERA sends data to exactly one destination: TikTok's own API
+          endpoints, in order to fulfil the requests above. It contacts no
+          other network service. There is no telemetry, no crash reporting,
+          no usage analytics, and no backend belonging to CHIMERA at all.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="nr">04</div>
+    <div class="rumpf">
+      <h2>How authorisation works</h2>
+      <p>
+        CHIMERA never sees, handles or stores a TikTok password. Authorisation
+        uses the OAuth 2.0 Authorization Code flow with PKCE
+        (<a href="https://www.rfc-editor.org/rfc/rfc7636" target="_blank"
+        rel="noopener noreferrer">RFC 7636</a>). The login itself happens on
+        TikTok's own domain, in the owner's own browser.
+      </p>
+      <p>
+        The application's client secret is supplied by the owner at the moment
+        of authorisation and is deliberately never accepted as a command-line
+        argument, so that it cannot end up in shell history or process lists.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="nr">05</div>
+    <div class="rumpf">
+      <h2>Retention and deletion</h2>
+      <p>
+        There is no retention schedule because there is no operator holding
+        the data. The owner holds it and removes it directly:
+      </p>
+      <ul>
+        <li>
+          Delete <code>~/.chimera/tiktok.json</code> to remove all stored
+          credentials. CHIMERA then has no access at all until the owner
+          authorises again.
+        </li>
+        <li>
+          Delete the local project files to remove all stored measurements.
+        </li>
+        <li>
+          Revoke the application under TikTok's own account settings to
+          invalidate the tokens on TikTok's side.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="nr">06</div>
+    <div class="rumpf">
+      <h2>Children</h2>
+      <p>
+        CHIMERA is developer tooling and is not directed at children. It
+        collects no data from anyone other than the person who installed it
+        and authorised their own account.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="nr">07</div>
+    <div class="rumpf">
+      <h2>Changes to this policy</h2>
+      <p>
+        If the set of permissions CHIMERA requests ever changes, this document
+        is updated before the change takes effect, and the version number and
+        effective date above are raised.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="nr">08</div>
+    <div class="rumpf">
+      <h2>Contact</h2>
+      <p>
+        Questions about this policy, or about the data described in it, go to
+        <a href="mailto:adwalch@gmx.net">adwalch@gmx.net</a>.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div>CHIMERA &middot; Privacy Policy &middot; Version 1.0</div>
+    <div>Effective 29 August 2026</div>
+  </footer>
+
+</div>

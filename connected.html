@@ -1,0 +1,325 @@
+<title>CHIMERA Authorization</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --grund: #F7F8FA;
+    --grund-tief: #EEF1F5;
+    --tinte: #15171B;
+    --tinte-still: #5C6470;
+    --akzent: #2D6A8E;
+    --gut: #1F7A5C;
+    --schlecht: #A33A3A;
+    --linie: #DFE3E9;
+    --linie-zart: #E9ECF1;
+    --satz: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --grund: #0E1014;
+      --grund-tief: #16191F;
+      --tinte: #DCE0E6;
+      --tinte-still: #8A929E;
+      --akzent: #5FA8D3;
+      --gut: #5FC49B;
+      --schlecht: #E08585;
+      --linie: #262B33;
+      --linie-zart: #1C2027;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --grund: #0E1014;
+    --grund-tief: #16191F;
+    --tinte: #DCE0E6;
+    --tinte-still: #8A929E;
+    --akzent: #5FA8D3;
+    --gut: #5FC49B;
+    --schlecht: #E08585;
+    --linie: #262B33;
+    --linie-zart: #1C2027;
+  }
+
+  body {
+    background: var(--grund);
+    color: var(--tinte);
+    font-family: var(--satz);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .blatt {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .marke {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--akzent);
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 4.5vw, 2.15rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  .lage {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 2px solid var(--tinte);
+  }
+
+  .fahne {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .fahne.ok { color: var(--gut); }
+  .fahne.fehler { color: var(--schlecht); }
+
+  p { max-width: 36rem; }
+
+  .kasten {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .etikett {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tinte-still);
+  }
+
+  #adresse {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    background: var(--grund-tief);
+    border: 1px solid var(--linie);
+    border-radius: 4px;
+    padding: 1rem 1.1rem;
+    word-break: break-all;
+    user-select: all;
+    max-height: 11rem;
+    overflow-y: auto;
+  }
+
+  .reihe {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  button {
+    font-family: var(--satz);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    background: var(--akzent);
+    border: none;
+    border-radius: 4px;
+    padding: 0.6rem 1.15rem;
+    cursor: pointer;
+  }
+  button:hover { filter: brightness(1.08); }
+  button:focus-visible {
+    outline: 2px solid var(--akzent);
+    outline-offset: 3px;
+  }
+
+  #hinweis {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--gut);
+  }
+
+  .schritte {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding-left: 1.2rem;
+    max-width: 36rem;
+  }
+  .schritte li { padding-left: 0.25rem; }
+  .schritte li::marker { color: var(--akzent); font-family: var(--mono); }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.875em;
+    background: var(--grund-tief);
+    border: 1px solid var(--linie-zart);
+    border-radius: 3px;
+    padding: 0.1em 0.35em;
+    word-break: break-word;
+  }
+
+  .merk {
+    background: var(--grund-tief);
+    border: 1px solid var(--linie);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .merk .titel {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tinte-still);
+  }
+
+  footer {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--linie);
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--tinte-still);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  }
+  footer a { color: var(--akzent); }
+</style>
+
+<div class="blatt">
+
+  <div class="lage">
+    <div class="marke">CHIMERA</div>
+    <div class="fahne" id="fahne">&nbsp;</div>
+    <h1 id="ueberschrift">Authorization</h1>
+    <p id="satz"></p>
+  </div>
+
+  <div class="kasten" id="kasten" hidden>
+    <div class="etikett">Full redirect URL — paste this into CHIMERA</div>
+    <div id="adresse"></div>
+    <div class="reihe">
+      <button id="knopf" type="button">Copy URL</button>
+      <span id="hinweis" role="status" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <div class="merk" id="warnung" hidden>
+    <div class="titel">This URL is a secret, briefly</div>
+    <p>
+      It carries a one-time authorization code. Do not post it or send it to
+      anyone. It expires within minutes and can be exchanged only once.
+    </p>
+  </div>
+
+  <div id="anleitung">
+    <div class="etikett" style="margin-bottom:0.75rem">What to do next</div>
+    <ol class="schritte">
+      <li>Copy the full URL above.</li>
+      <li>Return to the terminal running
+        <code>python -m chimera viral verbinden</code>.</li>
+      <li>Paste it at the prompt
+        <code>Die Adresse NACH der Weiterleitung hier einfuegen:</code></li>
+      <li>Enter the client secret when asked. The input stays invisible.</li>
+    </ol>
+  </div>
+
+  <footer>
+    <a href="index.html">CHIMERA</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var voll = window.location.href;
+  var suche = new URLSearchParams(window.location.search);
+  var code = suche.get("code");
+  var fehler = suche.get("error");
+
+  var fahne = document.getElementById("fahne");
+  var kopf = document.getElementById("ueberschrift");
+  var satz = document.getElementById("satz");
+  var kasten = document.getElementById("kasten");
+  var warnung = document.getElementById("warnung");
+  var anleitung = document.getElementById("anleitung");
+  var adresse = document.getElementById("adresse");
+
+  if (fehler) {
+    // TikTok meldet Fehler ueber die Adresszeile, nicht ueber einen
+    // Statuscode. Ohne diesen Zweig saehe eine Ablehnung aus wie ein
+    // Erfolg ohne Code -- der irrefuehrendste aller Zustaende.
+    fahne.textContent = "Authorization failed";
+    fahne.className = "fahne fehler";
+    kopf.textContent = "TikTok declined the request";
+    var grund = suche.get("error_description") || fehler;
+    satz.textContent = "TikTok reported: " + grund + " — nothing was " +
+      "connected. Check that the redirect URI registered for the app " +
+      "matches the one CHIMERA was started with, character for character.";
+    anleitung.hidden = true;
+    return;
+  }
+
+  if (!code) {
+    fahne.textContent = "Nothing to do here";
+    fahne.className = "fahne";
+    kopf.textContent = "This page is a landing point";
+    satz.textContent = "It is where TikTok sends you back after you " +
+      "authorize CHIMERA. Opened on its own it has nothing to show. Start " +
+      "the connection from the terminal instead.";
+    anleitung.hidden = true;
+    return;
+  }
+
+  fahne.textContent = "Authorized";
+  fahne.className = "fahne ok";
+  kopf.textContent = "TikTok sent you back";
+  satz.textContent = "The authorization code is in the address below. " +
+    "CHIMERA needs the whole URL, not just the code.";
+  adresse.textContent = voll;
+  kasten.hidden = false;
+  warnung.hidden = false;
+
+  var knopf = document.getElementById("knopf");
+  var hinweis = document.getElementById("hinweis");
+  knopf.addEventListener("click", function () {
+    function gelungen() { hinweis.textContent = "Copied."; }
+    function misslungen() {
+      // Kein stiller Fehlschlag: wer denkt, er habe kopiert, fuegt
+      // spaeter etwas Altes ein und sucht den Fehler woanders.
+      hinweis.textContent = "Could not copy — select the text and use Ctrl+C.";
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(voll).then(gelungen, misslungen);
+    } else {
+      misslungen();
+    }
+  });
+})();
+</script>
